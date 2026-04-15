@@ -12,6 +12,16 @@ import {
 } from './components'
 import './index.css'
 
+const isStac = (data: unknown): boolean => {
+  if (!data || typeof data !== 'object') return false
+  const obj = data as Record<string, unknown>
+  const type = typeof obj.type === 'string' ? obj.type : null
+  if (type === 'Catalog' || type === 'Collection' || type === 'Feature') {
+    return typeof obj.stac_version === 'string'
+  }
+  return typeof obj.stac_version === 'string'
+}
+
 const App: React.FC = () => {
   const prefersDark = useMedia('(prefers-color-scheme: dark)')
   const [userTheme, setUserTheme] = useState<ThemeType>(() => {
@@ -19,7 +29,7 @@ const App: React.FC = () => {
     return saved === 'light' || saved === 'dark' ? saved : undefined
   })
   const [state, setState] = useState<AppState>({ type: 'no-url' })
-  const [activeTab, setActiveTab] = useState<TabType>('json')
+  const [activeTab, setActiveTab] = useState<TabType | null>(null)
   const [shouldExpandAll, setShouldExpandAll] = useState(true)
   const [isPrettyPrinted, setIsPrettyPrinted] = useState(true)
 
@@ -54,6 +64,7 @@ const App: React.FC = () => {
         const text = await response.text()
         const data = JSON.parse(text)
         setState({ type: 'success', url: jsonUrl, data, jsonText: text })
+        setActiveTab((current) => current ?? (isStac(data) ? 'openeo' : 'json'))
       })
       .catch((error) => {
         setState({
@@ -128,6 +139,10 @@ const App: React.FC = () => {
 
   if (state.type === 'error') {
     return <ErrorMessage url={state.url} error={state.error} />
+  }
+
+  if (activeTab === null) {
+    return <LoadingMessage url={state.url} />
   }
 
   return (
