@@ -1,15 +1,14 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
 interface OpenEOViewerProps {
   url: string
 }
 
-export const OpenEOViewer: React.FC<OpenEOViewerProps> = ({ url }) => {
-  const stacRef = useCallback((node: HTMLElement | null) => {
-    if (node) {
-      node.setAttribute('url', url)
-    }
-  }, [url])
-
-  return <openeo-stac ref={stacRef} style={{ display: 'block', height: '100%' }} />
-}
+export const OpenEOViewer: React.FC<OpenEOViewerProps> = ({ url }) => (
+  <div
+    style={{ height: '100%' }}
+    dangerouslySetInnerHTML={{
+      __html: `<openeo-stac url="${encodeURI(url)}" style="display:block;height:100%"></openeo-stac>`,
+    }}
+  />
+)
