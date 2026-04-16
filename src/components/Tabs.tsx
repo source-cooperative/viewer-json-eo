@@ -28,10 +28,10 @@ export const Tabs: React.FC<TabsProps> = ({
       Raw Data
     </button>
     <button
-      className={`tab ${activeTab === 'openeo' ? 'active' : ''}`}
-      onClick={() => onTabChange('openeo')}
+      className={`tab ${activeTab === 'stac' ? 'active' : ''}`}
+      onClick={() => onTabChange('stac')}
     >
-      OpenEO
+      STAC
     </button>
     <div className="tab-spacer"></div>
     <div className="header-right">

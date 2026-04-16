@@ -4,7 +4,7 @@ export type AppState =
   | { type: 'error'; url: string; error: string }
   | { type: 'success'; url: string; data: any; jsonText: string }
 
-export type TabType = 'json' | 'raw' | 'openeo'
+export type TabType = 'json' | 'raw' | 'stac'
 
 export type ThemeType = 'light' | 'dark' | undefined
 

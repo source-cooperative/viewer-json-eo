@@ -50,7 +50,7 @@ export const JsonContent: React.FC<JsonContentProps> = ({
           <pre>{getRawJsonDisplay()}</pre>
         </div>
       )}
-      {activeTab === 'openeo' && <OpenEOViewer url={url} />}
+      {activeTab === 'stac' && <OpenEOViewer url={url} />}
     </div>
   )
 }

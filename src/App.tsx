@@ -64,7 +64,7 @@ const App: React.FC = () => {
         const text = await response.text()
         const data = JSON.parse(text)
         setState({ type: 'success', url: jsonUrl, data, jsonText: text })
-        setActiveTab((current) => current ?? (isStac(data) ? 'openeo' : 'json'))
+        setActiveTab((current) => current ?? (isStac(data) ? 'stac' : 'json'))
       })
       .catch((error) => {
         setState({
@@ -154,7 +154,7 @@ const App: React.FC = () => {
         onThemeChange={handleThemeChange}
       />
 
-      {activeTab !== 'openeo' && (
+      {activeTab !== 'stac' && (
         <Toolbar
           activeTab={activeTab}
           onSave={handleSave}
