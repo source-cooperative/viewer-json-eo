@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@openeo/vue-components':
-    specifier: ^2.22.0
-    version: 2.22.0
+    specifier: ^2.23.4
+    version: 2.23.4
   react:
     specifier: ^19.2.3
     version: 19.2.3
@@ -512,8 +512,8 @@ packages:
       ajv: 6.12.6
     dev: false
 
-  /@openeo/vue-components@2.22.0:
-    resolution: {integrity: sha512-/txPKdShiRmp3T0OB9Ja1RIfe6JQ1WfOsndhgs11l9mzFY1ftyUOxJJAQmG1ybz4ybpQ9ODZiwQQywn381h8ug==}
+  /@openeo/vue-components@2.23.4:
+    resolution: {integrity: sha512-4IYYzFigwitTdsivuhI0swdikCLx4jSs3bbdlAjYrwIVGw7dH0KOSLHvlJb/sR1sbWvg7g1XYVF64oGnNJ5yzg==}
     dependencies:
       '@musement/iso-duration': 1.0.0
       '@openeo/js-commons': 1.5.0
