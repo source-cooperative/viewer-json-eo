@@ -89,4 +89,4 @@ This application fetches JSON from external URLs. If you encounter CORS errors, 
 
 ## License
 
-MIT
+Apache-2.0
